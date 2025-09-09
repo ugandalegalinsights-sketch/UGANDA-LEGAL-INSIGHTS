@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ugandan Legal Insights - Test</title>
+    <title>Ugandan Legal Insights</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,15 +11,33 @@
             color: navy;
             margin: 0;
             padding: 20px;
+            line-height: 1.6;
         }
         header {
-            background-color: #000080; /* Dark blue */
-            color: white;
             text-align: center;
             padding: 20px;
+            background-color: #000080; /* Dark blue */
+            color: white;
         }
-        h2 {
+        h1, h2, h3 {
             color: navy;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         .accordion {
             background-color: #f0f8ff; /* Light blue */
@@ -29,6 +47,13 @@
             width: 100%;
             border: none;
             text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+            margin-bottom: 5px;
+        }
+        .active, .accordion:hover {
+            background-color: #ccc;
         }
         .panel {
             padding: 0 18px;
@@ -37,48 +62,550 @@
             overflow: hidden;
             transition: max-height 0.2s ease-out;
         }
-        a { color: blue; }
+        #recent-uploads {
+            text-align: center;
+            border: 1px solid navy;
+            padding: 20px;
+            margin: 40px 0;
+        }
         footer {
-            background-color: #000080;
-            color: white;
             text-align: center;
             padding: 20px;
+            background-color: #000080;
+            color: white;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: navy;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        /* Accessibility features */
+        .high-contrast {
+            background-color: black;
+            color: yellow;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Ugandan Legal Insights</h1>
-    </header>
-    <section id="land-law">
-        <h2>Land Law</h2>
-        <button class="accordion">Land Tenure Systems</button>
-        <div class="panel">
-            <ul>
-                <li><a href="#content">Freehold Tenure</a></li>
-                <li><a href="#content">Mailo Tenure</a></li>
-            </ul>
-        </div>
-    </section>
-    <section id="content">
-        <h3>Content</h3>
-        <p>This is a placeholder for legal content.</p>
-    </section>
-    <footer>
-        <p>&copy; 2025 Ugandan Legal Insights</p>
-    </footer>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        for (var i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
+
+<header>
+    <h1>Ugandan Legal Insights</h1>
+    <p>Your comprehensive resource for Ugandan law materials</p>
+</header>
+
+<!-- Settings section for user ease -->
+<section id="settings">
+    <h2>Settings</h2>
+    <p>Customize your experience:</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <button onclick="toggleHighContrast()">Toggle High Contrast</button>
+    <button onclick="increaseFontSize()">Increase Font Size</button>
+    <button onclick="decreaseFontSize()">Decrease Font Size</button>
+    <p>Search the site: <input type="text" id="search" placeholder="Search topics..."></p>
+</section>
+
+<!-- Main topics arranged vertically -->
+<section id="land-law">
+    <h2>Land Law</h2>
+    <button class="accordion">Land Tenure Systems</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Freehold Tenure</a></li>
+            <li><a href="#content-placeholder">Mailo Tenure</a></li>
+            <li><a href="#content-placeholder">Leasehold Tenure</a></li>
+            <li><a href="#content-placeholder">Customary Tenure</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Land Ownership and Rights</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Individual Ownership</a></li>
+            <li><a href="#content-placeholder">Communal Rights</a></li>
+            <li><a href="#content-placeholder">Women's Land Rights</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Land Registration and Titles</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Registration Process</a></li>
+            <li><a href="#content-placeholder">Certificate of Title</a></li>
+            <li><a href="#content-placeholder">Caveats and Searches</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Land Acquisition and Compensation</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Compulsory Acquisition</a></li>
+            <li><a href="#content-placeholder">Valuation and Compensation</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Leases and Mortgages</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Lease Agreements</a></li>
+            <li><a href="#content-placeholder">Mortgage Registration</a></li>
+            <li><a href="#content-placeholder">Foreclosure</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Customary Land Law</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Traditional Practices</a></li>
+            <li><a href="#content-placeholder">Certificate of Customary Ownership</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Government and Public Land</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Uganda Land Commission</a></li>
+            <li><a href="#content-placeholder">Public Trusts</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Land Disputes and Resolution</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Land Tribunals</a></li>
+            <li><a href="#content-placeholder">Mediation</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Environmental and Planning Aspects</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Physical Planning Act</a></li>
+            <li><a href="#content-placeholder">Environmental Impact</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Foreign Ownership</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Restrictions and Permissions</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="family-law">
+    <h2>Family Law</h2>
+    <button class="accordion">Marriage</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Types of Marriages (Civil, Customary, Religious)</a></li>
+            <li><a href="#content-placeholder">Requirements and Registration</a></li>
+            <li><a href="#content-placeholder">Polygamy</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Divorce and Dissolution</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Grounds for Divorce</a></li>
+            <li><a href="#content-placeholder">Procedure</a></li>
+            <li><a href="#content-placeholder">Annulment</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Maintenance and Spousal Support</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Alimony</a></li>
+            <li><a href="#content-placeholder">Child Maintenance</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Property Rights in Marriage</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Matrimonial Property</a></li>
+            <li><a href="#content-placeholder">Division on Divorce</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Child Custody and Guardianship</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Best Interests of the Child</a></li>
+            <li><a href="#content-placeholder">Custody Arrangements</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Adoption</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Process and Requirements</a></li>
+            <li><a href="#content-placeholder">International Adoption</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Succession and Inheritance</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Wills and Testate Succession</a></li>
+            <li><a href="#content-placeholder">Intestate Succession</a></li>
+            <li><a href="#content-placeholder">Administration of Estates</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Domestic Violence</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Protection Orders</a></li>
+            <li><a href="#content-placeholder">Legal Remedies</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Children's Rights</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Child Protection Laws</a></li>
+            <li><a href="#content-placeholder">Rights in Family Disputes</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="civil-procedure">
+    <h2>Civil Procedure</h2>
+    <button class="accordion">Jurisdiction and Courts</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Hierarchy of Courts</a></li>
+            <li><a href="#content-placeholder">Territorial and Pecuniary Jurisdiction</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Institution of Suits</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Filing a Plaint</a></li>
+            <li><a href="#content-placeholder">Cause of Action</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Pleadings</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Plaint Contents</a></li>
+            <li><a href="#content-placeholder">Written Statement of Defense</a></li>
+            <li><a href="#content-placeholder">Amendments</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Parties and Joinder</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Joinder of Parties</a></li>
+            <li><a href="#content-placeholder">Representative Suits</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Service of Summons</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Methods of Service</a></li>
+            <li><a href="#content-placeholder">Substituted Service</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Interlocutory Matters</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Temporary Injunctions</a></li>
+            <li><a href="#content-placeholder">Attachment Before Judgment</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Discovery and Evidence</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Interrogatories</a></li>
+            <li><a href="#content-placeholder">Production of Documents</a></li>
+            <li><a href="#content-placeholder">Affidavits</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Trial Procedure</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Framing Issues</a></li>
+            <li><a href="#content-placeholder">Witness Examination</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Judgments and Decrees</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Delivery of Judgment</a></li>
+            <li><a href="#content-placeholder">Decree Execution</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Appeals</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Grounds for Appeal</a></li>
+            <li><a href="#content-placeholder">Procedure</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Alternative Dispute Resolution</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Mediation</a></li>
+            <li><a href="#content-placeholder">Arbitration</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="criminal-procedure">
+    <h2>Criminal Procedure</h2>
+    <button class="accordion">Arrest and Detention</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Warrantless Arrest</a></li>
+            <li><a href="#content-placeholder">Rights of Arrested Persons</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Bail and Remand</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Bail Applications</a></li>
+            <li><a href="#content-placeholder">Conditions for Bail</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Institution of Proceedings</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Complaints and Charges</a></li>
+            <li><a href="#content-placeholder">Private Prosecutions</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Charges and Indictment</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Drafting Charges</a></li>
+            <li><a href="#content-placeholder">Joinder of Charges</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Plea Taking</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Guilty Pleas</a></li>
+            <li><a href="#content-placeholder">Plea Bargaining</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Trial Procedure</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Committal Proceedings</a></li>
+            <li><a href="#content-placeholder">Prosecution Case</a></li>
+            <li><a href="#content-placeholder">Defense Case</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Evidence in Criminal Trials</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Admissibility</a></li>
+            <li><a href="#content-placeholder">Witness Testimony</a></li>
+            <li><a href="#content-placeholder">Confessions</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Judgment and Sentencing</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Verdicts</a></li>
+            <li><a href="#content-placeholder">Sentencing Guidelines</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Appeals and Reviews</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Appeal Process</a></li>
+            <li><a href="#content-placeholder">Revision</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Juvenile Justice</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Children in Conflict with Law</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Human Rights in Criminal Procedure</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Fair Trial Rights</a></li>
+            <li><a href="#content-placeholder">Protection Against Torture</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="corporate-commercial">
+    <h2>Corporate and Commercial Practice</h2>
+    <button class="accordion">Company Formation and Registration</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Types of Companies</a></li>
+            <li><a href="#content-placeholder">Incorporation Process</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Corporate Governance</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Directors' Duties</a></li>
+            <li><a href="#content-placeholder">Shareholders' Rights</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Contracts and Commercial Transactions</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Contract Formation</a></li>
+            <li><a href="#content-placeholder">Breach and Remedies</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Mergers and Acquisitions</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Due Diligence</a></li>
+            <li><a href="#content-placeholder">Regulatory Approvals</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Intellectual Property</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Trademarks</a></li>
+            <li><a href="#content-placeholder">Patents</a></li>
+            <li><a href="#content-placeholder">Copyrights</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Competition Law</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Anti-Trust Regulations</a></li>
+            <li><a href="#content-placeholder">Mergers Control</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Consumer Protection</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Consumer Rights</a></li>
+            <li><a href="#content-placeholder">Product Liability</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Employment Law in Business</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Contracts of Employment</a></li>
+            <li><a href="#content-placeholder">Termination</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Taxation and Finance</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Corporate Tax</a></li>
+            <li><a href="#content-placeholder">VAT</a></li>
+        </ul>
+    </div>
+    <button class="accordion">Insolvency and Restructuring</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Bankruptcy Procedures</a></li>
+            <li><a href="#content-placeholder">Liquidation</a></li>
+        </ul>
+    </div>
+    <button class="accordion">International Trade</button>
+    <div class="panel">
+        <ul>
+            <li><a href="#content-placeholder">Import/Export Regulations</a></li>
+            <li><a href="#content-placeholder">Trade Agreements</a></li>
+        </ul>
+    </div>
+</section>
+
+<!-- Recent Uploads in the middle -->
+<section id="recent-uploads">
+    <h2>Recent Uploads</h2>
+    <ul>
+        <li><a href="#content-placeholder">Update on Land Registration Reforms (September 2025)</a></li>
+        <li><a href="#content-placeholder">New Family Law Amendments (August 2025)</a></li>
+        <li><a href="#content-placeholder">Civil Procedure Guidelines (July 2025)</a></li>
+        <!-- Add more as content is uploaded -->
+    </ul>
+    <p>To upload new content, edit the HTML file or integrate with a CMS like WordPress for easier management.</p>
+</section>
+
+<!-- User Interaction: Submit Questions or Cases -->
+<section id="ask-question">
+    <h2>Pose a Question or Case</h2>
+    <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="question">Question or Case Details:</label>
+        <textarea id="question" name="question" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <p>Your submission will be sent to the site owner for review and response.</p>
+</section>
+
+<!-- Content Placeholder (for all links) -->
+<section id="content-placeholder" style="display:none;">
+    <h3>Content Coming Soon</h3>
+    <p>This section will contain detailed legal materials. Add content here as needed.</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Ugandan Legal Insights. All rights reserved.</p>
+    <p><strong>Vision:</strong> To provide accessible and reliable legal insights for all Ugandans.</p>
+    <p><strong>Mission:</strong> Educate, inform, and facilitate interactions on key areas of Ugandan law.</p>
+    <p><strong>Contacts:</strong> Email: info@ugandanlegalinsights.com | Phone: +256-XXX-XXXXXX</p>
+</footer>
+
+<script>
+    // Accordion functionality
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
+    // Settings functions
+    function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+            document.body.style.backgroundColor = "navy";
+            document.body.style.color = "white";
+        } else {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "navy";
         }
-    </script>
+    }
+
+    function toggleHighContrast() {
+        document.body.classList.toggle("high-contrast");
+    }
+
+    var fontSize = 16;
+    function increaseFontSize() {
+        fontSize += 2;
+        document.body.style.fontSize = fontSize + "px";
+    }
+
+    function decreaseFontSize() {
+        fontSize -= 2;
+        document.body.style.fontSize = fontSize + "px";
+    }
+
+    // Simple search (client-side)
+    document.getElementById("search").addEventListener("input", function() {
+        var filter = this.value.toLowerCase();
+        var panels = document.querySelectorAll(".accordion, .panel li a");
+        panels.forEach(function(item) {
+            if (item.textContent.toLowerCase().indexOf(filter) > -1) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
