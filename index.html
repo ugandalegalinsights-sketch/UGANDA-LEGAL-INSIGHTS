@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ugandan Legal Insights - Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: navy;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #000080; /* Dark blue */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        h2 {
+            color: navy;
+        }
+        .accordion {
+            background-color: #f0f8ff; /* Light blue */
+            color: navy;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+        }
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+        a { color: blue; }
+        footer {
+            background-color: #000080;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ugandan Legal Insights</h1>
+    </header>
+    <section id="land-law">
+        <h2>Land Law</h2>
+        <button class="accordion">Land Tenure Systems</button>
+        <div class="panel">
+            <ul>
+                <li><a href="#content">Freehold Tenure</a></li>
+                <li><a href="#content">Mailo Tenure</a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="content">
+        <h3>Content</h3>
+        <p>This is a placeholder for legal content.</p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Ugandan Legal Insights</p>
+    </footer>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
